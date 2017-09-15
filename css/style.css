@@ -1,0 +1,55 @@
+* {
+	box-sizing: border-box;
+	margin: 5px;
+	padding: 5px;
+}
+li {
+	list-style: none;
+	margin: 10px;
+}
+
+input, input:focus {
+	outline:0;
+	cursor: pointer;
+}
+
+body {
+	background: #c2d6d6;
+}
+.container {
+	max-width: 400px;
+	margin: 0 auto;
+}
+#temperature {
+	font-size: 5em
+}
+.icon-title, #location, #title, .weather-content {
+	margin-left: 40px;
+}
+.weather-stats {
+	font-family: 'Hind', sans-serif;
+}
+#degree-symbol {
+	padding: 0;
+	margin: 0;
+}
+.weather-stat, #humidity, #temperature  {
+	display: inline;
+}
+.degree-toggle {
+	float: right;
+	margin-top: -100px;
+	margin-right: -100px;
+}
+.weather-stats .btn, #celsius, #fahrenheit  {
+	border: 1px;
+	margin: 0px;
+	background: #0099cc;
+	color: #fff;
+}	
+#kph, #mm, #mb {
+	margin-left: 20px;
+}
+#kph, #mm, #mb, #wind-dir, #wind, #feels-like, #humidity, #precipitation, #pressure, #sunrise, #sunset {
+	font-family: 'Lato', sans-serif;
+}

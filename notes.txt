@@ -1,0 +1,14 @@
+Rebuild the FCC Weather App
+	Why? I need to get back to coding applications again. I'm a little rusty and I miss it.
+	Also, My current Weather App is not functional on CodePen. I need to use a different API source.
+
+HTML ---> Design Ideas
+	-Like the user is looking through a window?
+	-Background changes depending on weather
+	-Have Weather news updates?
+	-Forcast
+	-This day in Weather History
+JS
+	-React?
+	-jQuery
+	-
