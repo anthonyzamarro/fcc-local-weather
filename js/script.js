@@ -1,4 +1,4 @@
-if (window.confirm("May we have access to your current location?")) {
+// if (window.confirm("May we have access to your current location?")) {
     $(document).ready(function() {
         loc = $.getJSON('https://ipinfo.io', function(data) {
             var location = $("#location").html(data.city + ", ").append(data.region + " ").append(data.country)
@@ -15,7 +15,7 @@ if (window.confirm("May we have access to your current location?")) {
 
                     var feelslike_f = result.current.feelslike_f
                     var feelslike_c = result.current.feelslike_c
-                    $("#feels-like").text(feelslike_f);
+                    $("#feels-like").text(feelslike_f).append('°');
 
                     $("#celsius").click(function() {
                         $("#celsius").css("background-color", "#334d4d");
@@ -53,7 +53,7 @@ if (window.confirm("May we have access to your current location?")) {
                     };
                     toggleSpeed();
 
-                    function togglePrecipittion() {
+                    function togglePrecipition() {
                         var precipitation_in = result.current.precip_in
                         var precipitation_mm = result.current.precip_mm
                         var precip_inches = $("#precipitation").html("<input type='button' class='ws-btn'value='" + precipitation_in + "' id='precip-inches'>").append(' in.');
@@ -68,7 +68,7 @@ if (window.confirm("May we have access to your current location?")) {
                             }
                         });
                     };
-                    togglePrecipittion();
+                    togglePrecipition();
 
                     function togglePressure() {
                         var pressure_in = result.current.pressure_in
@@ -154,6 +154,6 @@ if (window.confirm("May we have access to your current location?")) {
             });
         })
     });
-} else {
-    alert("Error")
-}
+// } else {
+//     alert("Error")
+// }
