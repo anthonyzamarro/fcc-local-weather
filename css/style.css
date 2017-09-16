@@ -18,11 +18,12 @@ body {
 	max-width: 400px;
 	margin: 0 auto;
 }
-#temperature {
-	font-size: 4em
+.title {
+	margin-left: -30px;
+
 }
-.icon-title, #location, #title, .weather-content {
-	/*margin-left: 30px;*/
+#temperature {
+	font-size: 4em;
 }
 #temp-title {
 	margin-left: 30px

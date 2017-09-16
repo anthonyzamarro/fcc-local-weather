@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato" rel="stylesheet">
- 	<title>FCC Weather App</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:600|Lato" rel="stylesheet">
+    <title>FCC Weather App</title>
 </head>
+
 <body>
-<div class="container">
-<h1 class="title">Your Local Weather</h1>
+    <div class="container">
+        <h1 class="title">Your Local Weather</h1>
 
-	<h3 id="location"></h3>
-	<ul class="degree-toggle">
-		<li><input class='btn' type="button" value="Celsius" id="celsius"><input class='btn' type="button" value="Fahrenheit" id="fahrenheit"></li>
-	</ul>
-	<br>
-	<div class="icon-title">
-		<canvas id="icon1" width="128" height="128"></canvas>
-		<h2 id="temp-title"></h2>
-	</div>
-	<div class="weather-content">
-		<h2><div id="temperature"></div></h2>
-		<ul class="weather-stats">
-			<li>Wind:<div class="weather-stat" id="wind"></div></li>
-			<li>Wind Direction:<div class="weather-stat" id="wind-dir"></div></li>
-			<li>Feels Like:<div class="weather-stat" id="feels-like"></div></li>
-			<li>Humidity:<div class="weather-stat" id="humidity"></div></li>
-			<li>Precipitation:<div class="weather-stat" id="precipitation"></div></li>
-			<li>Pressure:<div class="weather-stat" id="pressure"></div></li>
-			<li>Sunrise: <div class="weather-stat" id="sunrise"></div></li>
-			<li>Sunset: <div class="weather-stat" id="sunset"></div></li>
-	 	</ul>
- 	</div >
-</div>
+        <h3 id="location"></h3>
+        <ul class="degree-toggle">
+            <li><input class='btn' type="button" value="Celsius" id="celsius"><input class='btn' type="button" value="Fahrenheit" id="fahrenheit"></li>
+        </ul>
+        <br>
+        <div class="icon-title">
+            <canvas id="icon1" width="128" height="128"></canvas>
+            <h2 id="temp-title"></h2>
+        </div>
+        <div class="weather-content">
+            <h2>
+                <div id="temperature"></div>
+            </h2>
+            <ul class="weather-stats">
+                <li>Wind:
+                    <div class="weather-stat" id="wind"></div>
+                </li>
+                <li>Wind Direction:
+                    <div class="weather-stat" id="wind-dir"></div>
+                </li>
+                <li>Feels Like:
+                    <div class="weather-stat" id="feels-like"></div>
+                </li>
+                <li>Humidity:
+                    <div class="weather-stat" id="humidity"></div>
+                </li>
+                <li>Precipitation:
+                    <div class="weather-stat" id="precipitation"></div>
+                </li>
+                <li>Pressure:
+                    <div class="weather-stat" id="pressure"></div>
+                </li>
+                <li>Sunrise:
+                    <div class="weather-stat" id="sunrise"></div>
+                </li>
+                <li>Sunset:
+                    <div class="weather-stat" id="sunset"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/skycons.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/skycons.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
+
 </html>
