@@ -11,75 +11,81 @@
 
 				var temperature_f = result.current.temp_f
 				var temperature_c = result.current.temp_c
-				$("#temperature").text(temperature_f).append('°')
+				$("#temperature").text(temperature_f).append('°');
 
 				var feelslike_f = result.current.feelslike_f
 				var feelslike_c = result.current.feelslike_c
-				$("#feels-like").text(feelslike_f)
+				$("#feels-like").text(feelslike_f);
 
 				$("#celsius").click(function(){
-					$("#celsius").css("background-color", "#334d4d")
-					$("#fahrenheit").css("background-color", "#0099cc")
-					$("#temperature").text(temperature_c).append('°')
-					$("#feels-like").text(feelslike_c).append('°')
+					$("#celsius").css("background-color", "#334d4d");
+					$("#fahrenheit").css("background-color", "#0099cc");
+					$("#temperature").text(temperature_c).append('°');
+					$("#feels-like").text(feelslike_c).append('°');
 				});
 				$("#fahrenheit").click(function(){
-					$("#fahrenheit").css("background-color", "#334d4d")
-					$("#celsius").css("background-color", "#0099cc")
-					$("#temperature").text(temperature_f).append('°')
-					$("#feels-like").text(feelslike_f).append('°')
+					$("#fahrenheit").css("background-color", "#334d4d");
+					$("#celsius").css("background-color", "#0099cc");
+					$("#temperature").text(temperature_f).append('°');
+					$("#feels-like").text(feelslike_f).append('°');
 				});
 
 				var humidity = result.current.humidity
-				$("#humidity").text(humidity)
+				$("#humidity").text(humidity);
 
 				var wind_dir = result.current.wind_dir
-				$("#wind-dir").text(wind_dir)
+				$("#wind-dir").text(wind_dir);
 
-				var wind_kph = result.current.wind_kph
-				var wind_mph = result.current.wind_mph
-				$("#wind").text(wind_mph).append(' mph')
+				function toggleSpeed() {
+					var wind_kph = result.current.wind_kph
+					var wind_mph = result.current.wind_mph
+					var mph_speed = $("#wind").html("<input type='button' class='ws-btn'value='" + wind_mph + "' id='mph-speed'>").append(' mph');
+					var state = false;
 
-				$("#kph").click(function(){
-					$("#kph").css("background-color", "#334d4d")
-					$("#mph").css("background-color", "#0099cc")
-					$("#wind").text(wind_kph).append(' kph')
-				});
+					mph_speed.click(function(){
+						state = !state;
+						if(state) {
+							$("#wind").html("<input type='button' class='ws-btn'value='" + wind_kph + "' id='kph-speed'>").append(' kph');
+						} else {
+							$("#wind").html("<input type='button' class='ws-btn'value='" + wind_mph + "' id='mph-speed'>").append(' mph');
+						}
+					});
+				};
+				toggleSpeed();
 
-				$("#mph").click(function(){
-					$("#mph").css("background-color", "#334d4d")
-					$("#kph").css("background-color", "#0099cc")
-					$("#wind").text(wind_mph).append(' mph')
-				});
-				
-				var precipitation_in = result.current.precip_in
-				var precipitation_mm = result.current.precip_mm
-				$("#precipitation").text(precipitation_in).append(' in.')
+				function togglePrecipittion() {
+					var precipitation_in = result.current.precip_in
+					var precipitation_mm = result.current.precip_mm
+					var precip_inches = $("#precipitation").html("<input type='button' class='ws-btn'value='" + precipitation_in + "' id='precip-inches'>").append(' in.');
+					var state = false;
 
-				$("#mm").click(function(){
-					$("#mm").css("background-color", "#334d4d")
-					$("#precip-inches").css("background-color", "#0099cc")
-					$("#precipitation").text(precipitation_mm).append(' mm')
-				});
-				$("#precip-inches").click(function(){
-					$("#precip-inches").css("background-color", "#334d4d")
-					$("#mm").css("background-color", "#0099cc")
-					$("#precipitation").text(precipitation_in).append(' in.')
-				});
+					precip_inches.click(function(){
+						state = !state;
+						if(state) {
+							$("#precipitation").html("<input type='button' class='ws-btn'value='" + precipitation_mm + "' id='precip-inches'>").append(' mm');
+						} else {
+							$("#precipitation").html("<input type='button' class='ws-btn'value='" + precipitation_in + "' id='precip-mm'>").append(' in.');
+						}
+					});
+				};
+				togglePrecipittion();
 
-				var pressure_in = result.current.pressure_in
-				var pressure_mb = result.current.pressure_mb
-				$("#pressure").text(pressure_in).append(' in.')
-				$("#mb").click(function(){
-					$("#mb").css("background-color", "#334d4d")
-					$("#pressure-inches").css("background-color", "#0099cc")
-					$("#pressure").text(pressure_mb).append(' mb')
-				});
-				$("#pressure-inches").click(function(){
-					$("#pressure-inches").css("background-color", "#334d4d")
-					$("#mb").css("background-color", "#0099cc")
-					$("#pressure").text(pressure_in).append(' in.')
-				})
+				function togglePressure() {
+					var pressure_in = result.current.pressure_in
+					var pressure_mb = result.current.pressure_mb
+					var pressure_inches = $("#pressure").html("<input type='button' class='ws-btn'value='" + pressure_in + "' id='pressure-inches'>").append(' in.');
+					var state = false;
+
+					pressure_inches.click(function(){
+						state = !state;
+						if(state) {
+							$("#pressure").html("<input type='button' class='ws-btn'value='" + pressure_mb + "' id='pressure-inches'>").append(' mb');
+						} else {
+							$("#pressure").html("<input type='button' class='ws-btn'value='" + pressure_in + "' id='pressure-mb'>").append(' in.');
+						}
+					})
+				};
+				togglePressure();
 
 				var sunrise = result.forecast.forecastday[0].astro.sunrise
 				$("#sunrise").text(sunrise)
@@ -94,14 +100,6 @@
 
 				// WEATHER ICON ANIMARION
 				var skycons = new Skycons({"color": "white"});
-				  // on Android, a nasty hack is needed: {"resizeClear": true}
-
-				  // if (weather == 'Party cloudy' && sunset == true) {
-				  // 		skycons.add("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
-				  // } else if (weather == 'Sunny' && sunset == true) {
-				  // 		skycons.add("icon1", Skycons.CLEAR_NIGHT);
-				  // } else {
-				  // you can add a canvas by it's ID...
 				  switch(weather) {
 				  	case 'Sunny':
 				  	skycons.add("icon1", Skycons.CLEAR_DAY);
@@ -137,6 +135,7 @@
 				  	skycons.add("icon1", Skycons.SNOW)
 				  	case 'Fog':
 				  	case 'Freezing fog':
+				  	case 'Mist':
 				  	skycons.add("icon1", Skycons.FOG)
 				  	case 'Moderate or heavy sleet':
 				  	case 'Light sleet':
@@ -146,7 +145,6 @@
 				  	skycons.add("icon1", Skycons.SLEET)
 				  	break;
 				  	default:
-
 				  }
 				 skycons.play();
 				// }
