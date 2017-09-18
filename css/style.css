@@ -22,12 +22,11 @@ body {
 	margin-left: -30px;
 }
 #temperature {
+	font-family: 'Times';
 	font-size: 4em;
-}
-.temp-btn {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+	cursor: pointer;
+	background: none;
+	border: none;
 }
 #temp-title {
 	margin-left: 30px
@@ -38,7 +37,7 @@ body {
 .weather-stat, #humidity, #temperature  {
 	display: inline;
 }
-.degree-toggle {
+/*.degree-toggle {
 	float: right;
 	margin-top: -100px;
 	margin-right: -100px;
@@ -49,7 +48,7 @@ body {
 	margin: 0px;
 	background: #0099cc;
 	color: #fff;
-}
+}*/
 .ws-btn {
 	background: none;
 	border: none;

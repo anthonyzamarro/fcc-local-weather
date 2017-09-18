@@ -6,29 +6,57 @@
             $.ajax({
                 url: url,
                 success: function(result) {
+                    console.log(result)
                     var temp_title = result.current.condition.text
                     $("#temp-title").text(temp_title);
 
-                    var temperature_f = result.current.temp_f
-                    var temperature_c = result.current.temp_c
-                    $("#temperature").text(temperature_f).append('°');
+                    // var temperature_f = result.current.temp_f
+                    // var temperature_c = result.current.temp_c
+                    // $("#temperature").text(temperature_f).append('°');
 
-                    var feelslike_f = result.current.feelslike_f
-                    var feelslike_c = result.current.feelslike_c
-                    $("#feels-like").text(feelslike_f).append('°');
+                    // var feelslike_f = result.current.feelslike_f
+                    // var feelslike_c = result.current.feelslike_c
+                    // $("#feels-like").text(feelslike_f).append('°');
 
-                    $("#celsius").click(function() {
-                        $("#celsius").css("background-color", "#334d4d");
-                        $("#fahrenheit").css("background-color", "#0099cc");
-                        $("#temperature").text(temperature_c).append('°');
-                        $("#feels-like").text(feelslike_c).append('°');
-                    });
-                    $("#fahrenheit").click(function() {
-                        $("#fahrenheit").css("background-color", "#334d4d");
-                        $("#celsius").css("background-color", "#0099cc");
-                        $("#temperature").text(temperature_f).append('°');
-                        $("#feels-like").text(feelslike_f).append('°');
-                    });
+                    // $("#celsius").click(function() {
+                    //     $("#celsius").css("background-color", "#334d4d");
+                    //     $("#fahrenheit").css("background-color", "#0099cc");
+                    //     $("#temperature").text(temperature_c).append('°');
+                    //     $("#feels-like").text(feelslike_c).append('°');
+                    // });
+                    // $("#fahrenheit").click(function() {
+                    //     $("#fahrenheit").css("background-color", "#334d4d");
+                    //     $("#celsius").css("background-color", "#0099cc");
+                    //     $("#temperature").text(temperature_f).append('°');
+                    //     $("#feels-like").text(feelslike_f).append('°');
+                    // });
+
+                    function toggleTemp() {
+                        var temperature_f = result.current.temp_f
+                        var temperature_c = result.current.temp_c
+                        $("#temperature").html(temperature_f).append('°');
+
+                        var feelslike_f = result.current.feelslike_f
+                        var feelslike_c = result.current.feelslike_c
+                        $("#feels-like").text(feelslike_f).append('°');                        
+                        var state = false;
+
+                        $("#temperature").click(function(){
+                            state = !state
+                            if (state) {
+                                console.log(state)
+                                $(this).html(temperature_c).append('°');
+                                $("#feels-like").html(feelslike_c).append('°');
+
+                            } else {
+                                console.log(state)
+                                $(this).html(temperature_f).append('°');
+                                $("#feels-like").text(feelslike_f).append('°');
+                            }
+                        });
+                    }
+
+                    toggleTemp();
 
                     var humidity = result.current.humidity
                     $("#humidity").text(humidity);
@@ -39,7 +67,7 @@
                     function toggleSpeed() {
                         var wind_kph = result.current.wind_kph
                         var wind_mph = result.current.wind_mph
-                        var mph_speed = $("#wind").html("<input type='button' class='ws-btn'value='" + wind_mph + "' id='mph-speed'>").append(' mph');
+                        var mph_speed = $("#wind").html("<input type='button' class='ws-btn' value='" + wind_mph + "' id='mph-speed'>").append(' mph');
                         var state = false;
 
                         mph_speed.click(function() {
