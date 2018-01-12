@@ -16,4 +16,4 @@ You will automotically see the local weather appear for your current location. T
 but you can change it to celsius by clicking on the temperature value
 
 # License
-Copyright 2018. This is free software available under the [MIT License]()
+Copyright 2018. This is free software available under the [MIT License](https://github.com/anthonyzamarro/az-local-weather/blob/master/License.txt)
